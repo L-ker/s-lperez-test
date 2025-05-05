@@ -36,7 +36,7 @@ jobs:
                     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
             <servers>
               <server>
-                <id>anypoint-exchange-v3</id>
+                <id>anypoint-exchange-v4</id>
                 <username>${{ secrets.anypoint_platform_username }}</username>
                 <password>${{ secrets.anypoint_platform_password }}</password>
               </server>
@@ -84,7 +84,7 @@ jobs:
                     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
             <servers>
               <server>
-                <id>anypoint-exchange-v3</id>
+                <id>anypoint-exchange-v4</id>
                 <username>${{ secrets.anypoint_platform_username }}</username>
                 <password>${{ secrets.anypoint_platform_password }}</password>
               </server>
