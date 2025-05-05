@@ -1,0 +1,8 @@
+s-lperez-test:
+  host: ""
+  port: ""
+  path:
+    accounts: ""
+  credentials:
+    client_id: ""
+    client_secret: ""
