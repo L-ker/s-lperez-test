@@ -9,9 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      anypoint_username: ${{ secrets.anypoint_platform_username }}
-      anypoint_password: ${{ secrets.anypoint_platform_password }}
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
@@ -66,9 +63,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    env:
-      anypoint_username: ${{ secrets.anypoint_platform_username }}
-      anypoint_password: ${{ secrets.anypoint_platform_password }}
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
@@ -103,6 +97,12 @@ jobs:
           name: artifacts
 
       - name: Deploy to Sandbox
+        env:
+          USERNAME: ${{ secrets.anypoint_platform_username }}
+          PASSWORD: ${{ secrets.anypoint_platform_password }}
         run: |
           artifactName=$(ls *.jar | head -1)
-          mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName
+          mvn deploy -DmuleDeploy \
+           -Dmule.artifact=$artifactName \
+           -Danypoint.username="$USERNAME" \
+           -Danypoint.password="$PASSWORD"
