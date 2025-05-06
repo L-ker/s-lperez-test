@@ -13,8 +13,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.9.3:3</app.runtime>
-		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+		<app.runtime>4.4.0</app.runtime>
+		<mule.maven.plugin.version>4.4.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -30,26 +30,15 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<classifier>mule-application</classifier>
-                    <cloudhub2Deployment>
-                        <uri>https://anypoint.mulesoft.com</uri>
-                        <provider>MC</provider>
-                        <environment>Sandbox</environment>
-                        <target>Cloudhub</target>
-                        <muleVersion>${app.runtime}</muleVersion>
-                        <username>${anypoint.username}</username>
-                        <password>${anypoint.password}</password>
-                        <applicationName>s-test-svalerdos</applicationName>
-                        <replicas>1</replicas>
-                        <vCores>0.1</vCores>
-                        <deploymentSettings>
-                            <enforceDeployingReplicasAcrossNodes>false</enforceDeployingReplicasAcrossNodes>
-                            <updateStrategy>rolling</updateStrategy>
-                        </deploymentSettings>
-                        <properties>
-                            <env>dev</env>
-                        </properties>
-                    </cloudhub2Deployment>
+					<cloudHub2Deployment>
+  						<target>Sandbox</target> <!-- O el nombre real de tu entorno: Dev, QA, Prod, etc. -->
+  						<provider>CH2</provider>
+  						<region>eu-central-1</region> <!-- o us-east-1, etc. -->
+  						<replicas>1</replicas>
+  						<workerType>MICRO</workerType>
+  						<runtimeVersion>4.4.0</runtimeVersion>
+  						<skipDeploymentVerification>true</skipDeploymentVerification>
+					</cloudHub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
