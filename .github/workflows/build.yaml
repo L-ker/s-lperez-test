@@ -44,7 +44,7 @@ jobs:
         name: artifacts          
         path: target/*-mule-application.jar            
  
-  deploy:    
+  deploy:
     needs: build    
     runs-on: ubuntu-latest    
     steps:        
