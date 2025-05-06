@@ -4,15 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>api</artifactId>
+    <groupId>com.mycompany</groupId>
+    <artifactId>s-lperezgarcia-test-api2</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
 
-    <name>API Example</name>
-    <description>A MuleSoft API Example</description>
+    <name>s-lperezgarcia-test-api2</name>
 
-    <!-- Repositories -->
     <repositories>
         <repository>
             <id>central</id>
@@ -28,6 +26,13 @@
         </repository>
     </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-releases</id>
+            <url>https://repository.mulesoft.org/releases/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <!-- Dependencies -->
     <dependencies>
         <dependency>
@@ -35,12 +40,10 @@
             <artifactId>org.everit.json.schema</artifactId>
             <version>1.12.2</version>
         </dependency>
-        <!-- Aquí otras dependencias que puedas tener -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Mule Maven Plugin -->
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
@@ -50,7 +53,7 @@
                     <deployment>
                         <environment>Sandbox</environment>
                         <target>CloudHub</target>
-                        <region>eu-west-1</region> <!-- Ajusta según tu región -->
+                        <region>eu-west-1</region>
                         <applicationName>s-lperezgarcia-test-api2</applicationName>
                         <objectStoreV2>true</objectStoreV2>
                         <workers>
