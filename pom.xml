@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
     <artifactId>s-lperezgarcia-test-api2</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>mule-application</packaging>
-=======
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
-	<artifactId>s-lperezgarcia-test-api2</artifactId>
-	<version>1.0.0</version>
-	<packaging>mule-application</packaging>
->>>>>>> parent of 2ffb452 (cambio pom)
+    <name>s-lperezgarcia-test-api2</name>
 
-	<name>s-lperezgarcia-test-api2</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <app.runtime>4.4.0</app.runtime>
+        <mule.maven.plugin.version>4.4.0</mule.maven.plugin.version>
+    </properties>
 
-<<<<<<< HEAD
     <repositories>
         <repository>
             <id>central</id>
@@ -33,145 +29,86 @@
         </repository>
         <repository>
             <id>anypoint-exchange-v3</id>
+            <name>Anypoint Exchange</name>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+            <layout>default</layout>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
             <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <layout>default</layout>
             <url>https://repository.mulesoft.org/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
-    <!-- Dependencies -->
     <dependencies>
         <dependency>
             <groupId>com.github.everit-org.json-schema</groupId>
             <artifactId>org.everit.json.schema</artifactId>
             <version>1.12.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.10.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-sockets-connector</artifactId>
+            <version>1.2.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>2a45fb1f-648e-44b3-bcac-14bb9a245f38</groupId>
+            <artifactId>s-lperezgarcia-test</artifactId>
+            <version>1.0.0</version>
+            <classifier>raml</classifier>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.11.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.connectors</groupId>
+            <artifactId>mule-salesforce-connector</artifactId>
+            <version>10.22.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+            <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
-                <version>4.4.0</version>
+                <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <deployment>
-                        <environment>Sandbox</environment>
-                        <target>CloudHub</target>
-                        <region>eu-west-1</region>
-                        <applicationName>s-lperezgarcia-test-api2</applicationName>
-                        <objectStoreV2>true</objectStoreV2>
-                        <workers>
-                            <amount>1</amount>
-                            <type>MICRO</type>
-                        </workers>
-                    </deployment>
+                    <cloudhub2Deployment>
+                        <target>Sandbox</target>
+                        <provider>CH2</provider>
+                        <replicas>1</replicas>
+                        <workerType>MICRO</workerType>
+                        <runtimeVersion>4.4.0</runtimeVersion>
+                        <skipDeploymentVerification>true</skipDeploymentVerification>
+                    </cloudhub2Deployment>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
-=======
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<app.runtime>4.4.0</app.runtime>
-		<mule.maven.plugin.version>4.4.0</mule.maven.plugin.version>
-	</properties>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<cloudhub2Deployment>
-  						<target>Sandbox</target> <!-- O el nombre real de tu entorno: Dev, QA, Prod, etc. -->
-  						<provider>CH2</provider>
-  						<replicas>1</replicas>
-  						<workerType>MICRO</workerType>
-  						<runtimeVersion>4.4.0</runtimeVersion>
-  						<skipDeploymentVerification>true</skipDeploymentVerification>
-					</cloudhub2Deployment>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-http-connector</artifactId>
-			<version>1.10.3</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-sockets-connector</artifactId>
-			<version>1.2.5</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>2a45fb1f-648e-44b3-bcac-14bb9a245f38</groupId>
-			<artifactId>s-lperezgarcia-test</artifactId>
-			<version>1.0.0</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-apikit-module</artifactId>
-			<version>1.11.3</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-salesforce-connector</artifactId>
-			<version>10.22.5</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>anypoint-exchange-v3</id>
-			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
-</project>
->>>>>>> parent of 2ffb452 (cambio pom)
