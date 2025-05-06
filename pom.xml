@@ -30,7 +30,7 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudHub2Deployment>
+					<cloudhub2Deployment>
   						<target>Sandbox</target> <!-- O el nombre real de tu entorno: Dev, QA, Prod, etc. -->
   						<provider>CH2</provider>
   						<region>eu-central-1</region> <!-- o us-east-1, etc. -->
@@ -38,7 +38,7 @@
   						<workerType>MICRO</workerType>
   						<runtimeVersion>4.4.0</runtimeVersion>
   						<skipDeploymentVerification>true</skipDeploymentVerification>
-					</cloudHub2Deployment>
+					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
