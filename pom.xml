@@ -12,7 +12,6 @@
   <packaging>mule-application</packaging>
 
   <name>s-lperezgarcia-test-api2</name>
-  <description>MuleSoft API project</description>
 
   <properties>
     <mule.maven.plugin.version>3.9.1</mule.maven.plugin.version>
@@ -33,25 +32,16 @@
     </repository>
   </repositories>
 
-  <dependencies>
-    <!-- Mule Runtime -->
-    <dependency>
-      <groupId>org.mule.runtime</groupId>
-      <artifactId>mule-core</artifactId>
-      <version>${mule.runtime.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- JSON Schema validation -->
-    <dependency>
-      <groupId>org.everit.json</groupId>
-      <artifactId>org.everit.json.schema</artifactId>
-      <version>1.14.1</version>
-    </dependency>
-
-    <!-- Otras dependencias necesarias -->
-    <!-- Agrega aquí otras dependencias que uses en tu proyecto -->
-  </dependencies>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>mulesoft-releases</id>
+      <url>https://repository.mulesoft.org/releases/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>anypoint-exchange-v3</id>
+      <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <build>
     <plugins>
@@ -62,9 +52,22 @@
         <extensions>true</extensions>
         <configuration>
           <classifier>mule-application</classifier>
-          <deploymentTimeout>200</deploymentTimeout>
         </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mule.runtime</groupId>
+      <artifactId>mule-core</artifactId>
+      <version>${mule.runtime.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.everit.json</groupId>
+      <artifactId>org.everit.json.schema</artifactId>
+      <version>1.14.1</version>
+    </dependency>
+  </dependencies>
 </project>
