@@ -54,6 +54,7 @@ jobs:
           artifactName2=$(echo $artifactName1 | sed "s/.jar/-$commitHash.jar/")
           mv $artifactName1 $artifactName2
 
+
       - name: Upload artifact 
         uses: actions/upload-artifact@v4
         with:
