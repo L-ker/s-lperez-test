@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>2a45fb1f-648e-44b3-bcac-14bb9a245f38</groupId>
 	<artifactId>s-lperezgarcia-test-api2</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
@@ -38,7 +38,7 @@
 						<muleVersion>${app.runtime}</muleVersion>
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
-						<applicationName>p-test-svalerdos</applicationName>
+						<applicationName>s-lperezgarcia-test-api2</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
 						<deploymentTimeout>300000</deploymentTimeout>
@@ -124,6 +124,14 @@
 			<name>MuleSoft Releases Repository</name>
 			<layout>default</layout>
 			<url>https://repository.mulesoft.org/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Central</name>
+			<url>https://repo.maven.apache.org/maven2</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
