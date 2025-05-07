@@ -9,13 +9,12 @@
 
 	<name>s-lperezgarcia-test-api2</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<app.runtime>4.9.0</app.runtime>
-		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
-	</properties>
+		<properties>
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+			<app.runtime>4.9.3</app.runtime>
+			<mule.maven.plugin.version>4.4.0</mule.maven.plugin.version>
+		</properties>
 
 	<build>
 		<plugins>
@@ -30,14 +29,29 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<deployment>
-  						<target>cloudhub2</target>
-  						<username>${anypoint.username}</username>
-  						<password>${anypoint.password}</password>
+					<classifier>mule-application</classifier>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
 						<environment>Sandbox</environment>
-  						<applicationName>s-lperezgarcia-test-api2</applicationName>
-  						<targetId>${anypoint.targetId}</targetId>
-					</deployment>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>p-test-svalerdos</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+						<deploymentTimeout>300000</deploymentTimeout>
+						<skipDeploymentVerification>true</skipDeploymentVerification>
+						<javaVersion>17</javaVersion>
+						<deploymentSettings>
+							<enforceDeployingReplicasAcrossNodes>false</enforceDeployingReplicasAcrossNodes>
+							<updateStrategy>rolling</updateStrategy>
+						</deploymentSettings>
+						<properties>
+							<secure.key>${decryption.key}</secure.key>
+						</properties>
+					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
