@@ -117,4 +117,4 @@ jobs:
           -Dmule.artifact=$(ls target/*.jar | head -1) \
           -Ddeployment.target=Cloudhub-US-East-2 \
           -Dapp.runtime=4.9.3 \
-          -Djava.version=17
+          -Djava.version=8
